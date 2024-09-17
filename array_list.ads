@@ -7,8 +7,6 @@ package Array_List is
     type Array_List_Impl is private;
     type Array_List is access all Array_List_Impl;
 
-    --  type Array_List is private;
-
     function New_List return Array_List;
     
     procedure Push_Back (A : in out Array_List; Item : T);
