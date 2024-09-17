@@ -1,0 +1,50 @@
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
+
+# Build directories and files
+/obj/
+*.o
+*.ali
+*.exe
+*.dll
+*.a
+*.so
+*.out
+*.gprbuild
+*.gprbuild_final
+*.gprbuild_args
+
+# GNAT-specific
+*.d
+*.dyn
+*.bexch
+*.bfat
+*.c
+*.adb~
+*.ads~
+gnatdebug
+gnatinspect
+
+# IDE-specific files (like GNAT Studio)
+*.gps
+*.gpr.project
+.gnatstudio/
+.gnat/
+.vscode/
+.objs/
+
+# Temporary files
+*.tmp
+*.log
+*~
+
+# GNAT command history files
+gnatmake_cmd.history
+gnatcmd.history
