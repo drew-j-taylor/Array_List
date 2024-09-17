@@ -21,7 +21,7 @@ package Array_List is
 
     procedure Pop_Back (A : Array_List);
     procedure Erase (A : Array_List; Position : Natural);
-    --  procedure Insert (A : Array_List; Position : Natural; Item : T);
+    procedure Insert (A : in out Array_List; Position : Natural; Item : T);
 
     function "=" (L, R : Array_List) return Boolean;
 

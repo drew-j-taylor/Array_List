@@ -62,4 +62,12 @@ begin
         Ada.Text_IO.Put(Char_List.At_Index(A2, i) & ", ");
     end loop;
 
+    Ada.Text_IO.New_Line;
+
+    Char_List.Insert(A2, 3, 'x');
+    Ada.Text_IO.Put_Line("size: " & Integer'Image(Char_List.Size(A2)));
+    for i in 0..Char_List.Size(A2)-1 loop 
+        Ada.Text_IO.Put(Char_List.At_Index(A2, i) & ", ");
+    end loop;
+
 end Main;

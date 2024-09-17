@@ -76,7 +76,6 @@ package body Array_List is
         end if;
 
         if Position = 0 then 
-            -- for(int i = pos; i < (n_elems - 1); i++){ temp_ptr[i] = data_ptr[i+1]; }
             Temp_Data (0..(A.Num_Elements - 2)) := A.Data (1..(A.Num_Elements - 1));
         else 
             Temp_Data (0..(Position - 1)) := A.Data(0..(Position - 1));
@@ -87,7 +86,21 @@ package body Array_List is
         A.Num_Elements := A.Num_Elements - 1;
     end Erase;
 
-    --  procedure Insert (A : Array_List; Position : Natural; Item : T);
+    procedure Insert (A : in out Array_List; Position : Natural; Item : T) is 
+        Temp_Data : Data_Access;
+    begin 
+        if A.Num_Elements + 1 >= A.Capacity then 
+            Grow(A);
+        end if;
+        Temp_Data := new Array_List_Data (0..(A.Capacity - 1));
+
+        Temp_Data (0..(Position - 1)) := A.Data(0..(Position - 1));
+        Temp_Data (Position) := Item;
+        Temp_Data ((Position + 1)..(A.Num_Elements)) := A.Data (Position..(A.Num_Elements - 1));
+
+        A.Num_Elements := A.Num_Elements + 1;
+        A.Data := Temp_Data;
+    end Insert;
 
 
     function "=" (L, R : Array_List) return Boolean is 
